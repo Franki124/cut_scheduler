@@ -1,7 +1,7 @@
+import 'package:cut_scheduler/common/styles/app_colors.dart';
 import 'package:cut_scheduler/screens/home.dart';
 import 'package:cut_scheduler/screens/settings.dart';
 import 'package:flutter/material.dart';
-
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -11,7 +11,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-
   int _screenIndex = 0;
 
   List<Widget> screens = [
@@ -22,10 +21,25 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primaryElement,
       appBar: AppBar(
-        title: const Text('Scheduler'),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: AppColors.primaryElement,
+        title: const Text(
+          'Scheduler',
+          style: TextStyle(
+            color: AppColors.primaryElementText,
+          ),
+        ),
       ),
-      body: screens[_screenIndex],
+      body: Container(
+          decoration: const BoxDecoration(
+            color: AppColors.primaryBackground,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          ),
+          child: screens[_screenIndex]),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _screenIndex,
@@ -37,16 +51,13 @@ class _DashboardState extends State<Dashboard> {
           unselectedItemColor: Colors.grey,
           selectedItemColor: Colors.blueAccent,
           items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          activeIcon: Icon(Icons.home),
-          label: 'Home'
-        ),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings'
-        ),
-      ]),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(Icons.home),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Settings'),
+          ]),
     );
   }
 }

@@ -16,5 +16,4 @@ class AppColors {
   // main widget text color grey
   static const Color primarySecondaryElementText = Color.fromARGB(255, 102, 102, 102);
 
-
 }

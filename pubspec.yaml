@@ -1,5 +1,5 @@
 name: cut_scheduler
-description: A simple app that can be an alternative to defualt excel file.
+description: A simple app that can be an alternative to default excel file.
 publish_to: 'none'
 version: 1.0.0+1
 

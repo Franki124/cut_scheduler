@@ -26,9 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const Gap(10),
         DateSelector(textArray: debug, onChange: handleDateChange),
-        const Gap(20),
-        const SubjectTile(),
+        const Gap(10),
+        Container(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+            child: const SubjectTile()
+        ),
       ],
     );
   }
